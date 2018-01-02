@@ -412,6 +412,7 @@ h1 {
   font-family: "Coiny", cursive; }
 
 h3 {
+  font-size: 1.5em;
   font-family: "Roboto", sans-serif; }
 
 p {
@@ -446,7 +447,6 @@ li {
   margin-bottom: 10px; }
 
 .playerOptions {
-  border: 2px solid yellow;
   padding-left: 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -461,9 +461,11 @@ li {
     padding: 24px;
     width: 30px;
     height: 30px;
+    font-size: 1.5em;
     border: 2px solid #2c4b4b;
     border-radius: 50%;
-    font-size: 1.5em;
+    -webkit-box-shadow: 2px 2px #2c4b4b;
+    box-shadow: 2px 2px #2c4b4b;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -475,7 +477,16 @@ li {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center; }
+    justify-content: center;
+    -webkit-transition: background .5s, border-color .5s, -webkit-transform .3s;
+    transition: background .5s, border-color .5s, -webkit-transform .3s;
+    -o-transition: transform .3s, background .5s, border-color .5s;
+    transition: transform .3s, background .5s, border-color .5s;
+    transition: transform .3s, background .5s, border-color .5s, -webkit-transform .3s; }
   .playerOptions__option:hover {
     cursor: pointer;
-    background: #2c4b4b; }
+    background: #7fd7d7;
+    border-color: #7fd7d7;
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); }
