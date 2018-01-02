@@ -2,24 +2,38 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Coiny" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
-    <h1>Rock Paper Scissors Game</h1>
+    <div class="container">
+      <h1>Rock Paper Scissors Game</h1>
 
-    <div class="output"></div>
+      <div class="gameOutput">
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-6"></div>
+        </div>
+      </div> <!-- game output results -->
 
-    <div class="options">
-      <h3>Take your pick:</h3>
-      <ul>
-        <li><i class="fa fa-hand-rock-o" aria-hidden="true"></i></li>
-        <li><i class="fa fa-hand-paper-o" aria-hidden="true"></i></li>
-        <li><i class="fa fa-hand-scissors-o" aria-hidden="true"></i></li>
-      </ul>
-    </div>
+      <div class="selection">
+        <h3>Take your pick:</h3>
+
+
+        <ul class="playerOptions">
+          <li class="playerOptions__option">
+            <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+          </li>
+          <li class="playerOptions__option">
+            <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+          </li>
+          <li class="playerOptions__option">
+            <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+          </li>
+        </ul>
+      </div> <!-- wrapper -->
+    </div> <!-- container -->
     <script src="https://use.fontawesome.com/3a3c7b3aaf.js"></script>
   </body>
 </html>

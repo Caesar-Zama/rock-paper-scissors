@@ -6,6 +6,8 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@import url("https://fonts.googleapis.com/css?family=Coiny");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 html {
   line-height: 1.15;
   /* 1 */
@@ -392,3 +394,88 @@ template {
  */
 [hidden] {
   display: none; }
+
+/* ========   Default Styles ======== */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-size: 16px;
+  background: #528B8B; }
+
+h1, h3 {
+  text-align: center;
+  color: #fff; }
+
+h1 {
+  font-family: "Coiny", cursive; }
+
+h3 {
+  font-family: "Roboto", sans-serif; }
+
+p {
+  font-family: "Roboto", sans-serif; }
+
+li {
+  list-style: none; }
+
+.container {
+  border: 2px solid green;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100vh; }
+
+.gameOutput {
+  border: 2px solid lightblue;
+  height: auto; }
+
+.selection {
+  border: 2px solid blue;
+  margin-bottom: 10px; }
+
+.playerOptions {
+  border: 2px solid yellow;
+  padding-left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .playerOptions__option {
+    margin: 2%;
+    padding: 24px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #2c4b4b;
+    border-radius: 50%;
+    font-size: 1.5em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .playerOptions__option:hover {
+    cursor: pointer;
+    background: #2c4b4b; }

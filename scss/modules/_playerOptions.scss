@@ -1,0 +1,24 @@
+.playerOptions {
+  border: 2px solid yellow;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+
+  &__option {
+    margin: 2%;
+    padding: 24px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #2c4b4b;
+    border-radius: 50%;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__option:hover {
+    cursor: pointer;
+    background: #2c4b4b;
+  }
+}

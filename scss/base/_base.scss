@@ -1,1 +1,36 @@
-@import "../_config.scss";
+/* ========   Default Styles ======== */
+
+@import "../config.scss";
+@import url($font-url-google);
+@import url($font-url-google-two);
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background: $blue;
+}
+
+h1, h3 {
+  text-align: center;
+  color: $white;
+}
+
+h1 {
+  font-family: $font-primary;
+}
+
+h3 {
+  font-family: $font-secondary;
+}
+
+p {
+  font-family: $font-secondary;
+}
+
+li {
+  list-style: none;
+}
