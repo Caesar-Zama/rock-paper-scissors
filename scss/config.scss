@@ -11,7 +11,13 @@ $font-bold: 700;
 // DESCRIPTIVE COLORS
 $white: #fff;
 $blue: #528B8B;
-
-// FUNCTIONAL COLORS
 $spectra: #2c4b4b;
 $bermuda: #7fd7d7;
+$fadedJade: #437171;
+
+
+// FUNCTIONAL COLORS
+$color-primary: $white;
+$color-accent: $spectra;
+$color-accent-2: $bermuda;
+$color-shadow: $fadedJade;

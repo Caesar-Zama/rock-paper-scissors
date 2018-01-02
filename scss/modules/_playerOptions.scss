@@ -9,9 +9,9 @@
     width: 30px;
     height: 30px;
     font-size: 1.5em;
-    border: 2px solid $spectra;
+    border: 2px solid $color-accent;
     border-radius: 50%;
-    box-shadow: 2px 2px $spectra;
+    box-shadow: 2px 2px $color-accent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,8 +20,8 @@
 
   &__option:hover {
     cursor: pointer;
-    background: $bermuda;
-    border-color: $bermuda;
+    background: $color-accent-2;
+    border-color: $color-accent-2;
     transform: translateY(2px);
   }
 }

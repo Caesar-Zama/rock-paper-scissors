@@ -409,7 +409,8 @@ h1, h3 {
   color: #fff; }
 
 h1 {
-  font-family: "Coiny", cursive; }
+  font-family: "Coiny", cursive;
+  text-shadow: 6px 6px #437171; }
 
 h3 {
   font-size: 1.5em;
@@ -441,10 +442,6 @@ li {
 .gameOutput {
   border: 2px solid lightblue;
   height: auto; }
-
-.selection {
-  border: 2px solid blue;
-  margin-bottom: 10px; }
 
 .playerOptions {
   padding-left: 0;
