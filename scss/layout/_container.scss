@@ -1,6 +1,5 @@
 // Evenly distributes space between all major layout components
 .container {
-  border: 2px solid green;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
