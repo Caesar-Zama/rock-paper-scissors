@@ -442,6 +442,9 @@ img {
   flex-direction: column;
   height: 100vh; }
 
+.gameOutput {
+  display: none; }
+
 .row {
   display: -webkit-box;
   display: -webkit-flex;

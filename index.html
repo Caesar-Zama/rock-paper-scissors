@@ -13,13 +13,13 @@
       <div class="gameOutput">
         <div class="row">
           <div class="col-6">
-            <img src="icons/whiterock.svg" alt="">
-            <p class="score">You: 1</p>
+            <img src="">
+            <p id="playerScore" class="score"></p>
           </div>
           <h4>VS</h4>
           <div class="col-6">
-            <img src="icons/whitepaperhand.svg" alt="">
-            <p class="score">CPU: 0</p>
+            <img src="">
+            <p id="cpuScore" class="score"></p>
           </div>
         </div>
       </div> <!-- game output results -->
@@ -29,13 +29,13 @@
 
 
         <ul class="playerOptions">
-          <li class="playerOptions__option">
+          <li id="rock" class="playerOptions__option">
             <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
           </li>
-          <li class="playerOptions__option">
+          <li id="paper" class="playerOptions__option">
             <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
           </li>
-          <li class="playerOptions__option">
+          <li id="scissors" class="playerOptions__option">
             <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
           </li>
         </ul>
@@ -49,6 +49,7 @@
       <!-- Scissor Hands by H Alberto Gongora from the Noun Project (white) -->
     </div> <!-- container -->
     <script src="https://use.fontawesome.com/3a3c7b3aaf.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
 <!-- <i class="fa fa-hand-rock-o" aria-hidden="true"></i> -->
