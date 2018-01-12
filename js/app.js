@@ -1,9 +1,8 @@
-const playerOptions = document.querySelectorAll('.playerOptions__option'); // rock,paper,scissor btn
-
+const playerOptions = document.querySelectorAll('.playerOptions__option');
 const playerScoreBox = document.getElementById('playerScore');
 const cpuScoreBox = document.getElementById('cpuScore');
 
-let gameState = true;
+
 let playerScore = 0;
 let cpuScore = 0;
 
@@ -41,59 +40,59 @@ function displayChoice() {
   }
 
   output.style.display = 'block';
-  evaluateWinner(playerChoice.src, cpuSelection());
+  game(playerChoice.src, cpuSelection());
 }
 
 // Determines winner of match
-function evaluateWinner(player, cpu) {
+function game(player, cpu) {
+  // Stop game when winning score is reached
+  function gameOver(score,target,text) {
+    if (score !== 2) {
+      target.textContent = text + ' ' + score;
+    } else {
+      target.textContent = text + ' ' + score;
+      console.log('Game Over!');
+      for (var i = 0; i < playerOptions.length; i++) {
+        playerOptions[i].style.display = 'none';
+      }
+    }
+  }
+  // Evaluate who won match
   if (player === cpu) {
-    // playerScoreBox.textContent = 'You: ' + playerScore;
-    // cpuScoreBox.textContent = 'Cpu: ' + cpuScore;
-    addScore(playerScore, playerScoreBox, 'You: ');
-    addScore(cpuScore, cpuScoreBox, 'Cpu: ');
+    gameOver(playerScore, playerScoreBox, 'You:');
+    gameOver(cpuScore, cpuScoreBox, 'Cpu:');
   } else if (player.indexOf('icons/rock.svg') !== -1) { // if player chose 'rock'
     if (cpu.indexOf('icons/scissor.svg') !== -1) { // and cpu chose 'scissor'
       playerScore++;
-      addScore(playerScore, playerScoreBox, 'You: ');
-      addScore(cpuScore, cpuScoreBox, 'Cpu: ');
+      gameOver(playerScore, playerScoreBox, 'You:');
+      gameOver(cpuScore, cpuScoreBox, 'Cpu:');
     } else { // but if cpu chose 'paper'
       cpuScore++;
-      addScore(cpuScore, cpuScoreBox, 'Cpu: ');
-      addScore(playerScore, playerScoreBox, 'You: ');
+      gameOver(cpuScore, cpuScoreBox, 'Cpu:');
+      gameOver(playerScore, playerScoreBox, 'You:');
     }
   } else if (player.indexOf('icons/paper.svg') !== -1) { // if player chose 'paper'
     if (cpu.indexOf('icons/rock.svg') !== -1) { // and cpu chose 'rock'
     playerScore++;
-    addScore(playerScore, playerScoreBox, 'You: ');
-    addScore(cpuScore, cpuScoreBox, 'Cpu: ');
+    gameOver(playerScore, playerScoreBox, 'You:');
+    gameOver(cpuScore, cpuScoreBox, 'Cpu:');
     } else { // but if cpu chose 'scissor'
     cpuScore++;
-    addScore(cpuScore, cpuScoreBox, 'Cpu: ');
-    addScore(playerScore, playerScoreBox, 'You: ');
+    gameOver(cpuScore, cpuScoreBox, 'Cpu:');
+    gameOver(playerScore, playerScoreBox, 'You:');
     }
   } else if (player.indexOf('icons/scissor.svg') !== -1) { // if player chose 'scissor'
     if (cpu.indexOf('icons/paper.svg') !== -1) { // and cpu chose 'paper'
     playerScore++;
-    addScore(playerScore, playerScoreBox, 'You: ');
-    addScore(cpuScore, cpuScoreBox, 'Cpu: ');
+    gameOver(playerScore, playerScoreBox, 'You:');
+    gameOver(cpuScore, cpuScoreBox, 'Cpu:');
     } else { // but if cpu chose 'rock'
     cpuScore++;
-    addScore(cpuScore, cpuScoreBox, 'Cpu: ');
-    addScore(playerScore, playerScoreBox, 'You: ');
+    gameOver(cpuScore, cpuScoreBox, 'Cpu:');
+    gameOver(playerScore, playerScoreBox, 'You:');
     }
   }
 }
-
-function addScore(score,target,text) {
-  target.textContent = text + score;
-}
-
-
-
-
-
-
-
 
 // Add click event on each playerOptions
 playerOptions.forEach((el) => {
