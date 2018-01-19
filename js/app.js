@@ -1,11 +1,8 @@
 const playerOptions = document.querySelectorAll('.playerOptions__option');
-const playerScoreBox = document.getElementById('playerScore');
-const cpuScoreBox = document.getElementById('cpuScore');
 
-
+// Initial Game Scores
 let playerScore = 0;
 let cpuScore = 0;
-
 
 // Computer generates random rock, paper, scissor selection
 function cpuSelection() {
@@ -18,7 +15,6 @@ function cpuSelection() {
 
   const random = Math.floor(Math.random() * choices.length);
   cpuChoice.setAttribute('src', choices[random].src);
-
   return cpuChoice.src;
 }
 
@@ -26,7 +22,6 @@ function cpuSelection() {
 function displayChoice() {
   const output = document.querySelector('.gameOutput');
   const playerChoice = output.querySelectorAll('img')[0];
-
 // Check user selection and display approriate image
   if (this.id === 'rock') {
     playerChoice.setAttribute('src', 'icons/rock.svg');
@@ -45,15 +40,21 @@ function displayChoice() {
 
 // Determines winner of match
 function game(player, cpu) {
-  // Stop game when winning score is reached
+  const playerScoreBox = document.getElementById('playerScore');
+  const cpuScoreBox = document.getElementById('cpuScore');
+  const happyface = 'icons/happyface.svg';
+  const sadface = 'icons/sadface.svg';
+  // Stops game when winning score is reached
   function gameOver(score,target,text) {
     if (score !== 2) {
       target.textContent = text + ' ' + score;
     } else {
       target.textContent = text + ' ' + score;
-      console.log('Game Over!');
-      for (var i = 0; i < playerOptions.length; i++) {
-        playerOptions[i].style.display = 'none';
+      // could tell who won by checking the target.id value and use that to display a 'You Win or You Lose' msg based off value
+      if (target.id === 'playerScore') {
+        gameOutcome('You Win!', happyface);
+      } else {
+        gameOutcome('You Suck!', sadface);
       }
     }
   }
@@ -93,6 +94,44 @@ function game(player, cpu) {
     }
   }
 }
+
+// gameOutcome(): takes two parameters to
+// 1st: is a reference for displaying 'You Win or Lose text'
+// 2nd: is a reference for displaying Proper icon based on win/lose result
+function gameOutcome(msg,icon) {
+  const gameOutput = document.querySelector('.gameOutput');
+  const selection = gameOutput.nextElementSibling;
+  const arr = [gameOutput, selection];
+  const container = document.querySelector('.container');
+  // Grab's Event Object & Applies reset functionality to 'Play Again' btn
+  function getEventTarget(e) {
+    if (e.target.tagName.toLowerCase() === 'button') {
+      reset();
+    }
+  }
+  // Removes player options & game output in one go
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].style.display = 'none';
+  }
+  // Game ending generated HTML
+  const generatedDiv = document.createElement('div');
+  generatedDiv.innerHTML = `<h3> ${msg} </h3>
+                            <img src="${icon}">
+                            <button>Play Again?</button>`;
+  container.append(generatedDiv);
+  // Use 'Event Delegation' to place an event listener on button element
+  container.addEventListener('click', getEventTarget);
+}
+
+
+
+// Figure out what the hell 'Event Delegation' is and how I can apply it to add an event listener to dynanmically generated button
+function reset() {
+  // Reset functionality code
+}
+
+
+
 
 // Add click event on each playerOptions
 playerOptions.forEach((el) => {
