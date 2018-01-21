@@ -12,7 +12,7 @@ function cpuSelection() {
     {src: 'icons/paper.svg'},
     {src: 'icons/scissor.svg'}
   ];
-
+  
   const random = Math.floor(Math.random() * choices.length);
   cpuChoice.setAttribute('src', choices[random].src);
   return cpuChoice.src;
@@ -50,11 +50,11 @@ function game(player, cpu) {
       target.textContent = text + ' ' + score;
     } else {
       target.textContent = text + ' ' + score;
-      // could tell who won by checking the target.id value and use that to display a 'You Win or You Lose' msg based off value
+      // checks the target.id value and uses that to display a 'You Win or You Lose' msg based off value
       if (target.id === 'playerScore') {
-        gameOutcome('You Win!', happyface);
+        gameOverDisplay('You Win!', happyface);
       } else {
-        gameOutcome('You Suck!', sadface);
+        gameOverDisplay('You Suck!', sadface);
       }
     }
   }
@@ -98,14 +98,15 @@ function game(player, cpu) {
 // gameOutcome(): takes two parameters to
 // 1st: is a reference for displaying 'You Win or Lose text'
 // 2nd: is a reference for displaying Proper icon based on win/lose result
-function gameOutcome(msg,icon) {
+function gameOverDisplay(msg,icon) {
   const gameOutput = document.querySelector('.gameOutput');
   const selection = gameOutput.nextElementSibling;
   const arr = [gameOutput, selection];
   const container = document.querySelector('.container');
   // Grab's Event Object & Applies reset functionality to 'Play Again' btn
   function getEventTarget(e) {
-    if (e.target.tagName.toLowerCase() === 'button') {
+    var target = e.target;
+    if (target.tagName.toLowerCase() === 'button') {
       reset();
     }
   }
@@ -113,8 +114,9 @@ function gameOutcome(msg,icon) {
   for (var i = 0; i < arr.length; i++) {
     arr[i].style.display = 'none';
   }
-  // Game ending generated HTML
+  // Game Over Display
   const generatedDiv = document.createElement('div');
+  generatedDiv.className = 'reset';
   generatedDiv.innerHTML = `<h3> ${msg} </h3>
                             <img src="${icon}">
                             <button>Play Again?</button>`;
@@ -123,15 +125,24 @@ function gameOutcome(msg,icon) {
   container.addEventListener('click', getEventTarget);
 }
 
-
-
-// Figure out what the hell 'Event Delegation' is and how I can apply it to add an event listener to dynanmically generated button
+// Restores game to original logic and UI
 function reset() {
-  // Reset functionality code
+  const gameOutput = document.querySelector('.gameOutput');
+  const selection = gameOutput.nextElementSibling;
+  const generatedDiv = document.querySelector('.reset');
+  const imgs = document.querySelectorAll('img');
+  const paras = document.querySelectorAll('p');
+// New Game
+  playerScore = 0;
+  cpuScore = 0;
+  generatedDiv.parentNode.removeChild(generatedDiv); // remove gameOver UI
+  selection.style.display = 'block'; // return player options
+  // empties output results
+  for (let i = 0; i < imgs.length; i++) {
+    imgs[i].src = '';
+    paras[i].textContent = '';
+  }
 }
-
-
-
 
 // Add click event on each playerOptions
 playerOptions.forEach((el) => {
