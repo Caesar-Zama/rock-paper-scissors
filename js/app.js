@@ -12,7 +12,7 @@ function cpuSelection() {
     {src: 'icons/paper.svg'},
     {src: 'icons/scissor.svg'}
   ];
-  
+
   const random = Math.floor(Math.random() * choices.length);
   cpuChoice.setAttribute('src', choices[random].src);
   return cpuChoice.src;
@@ -52,9 +52,9 @@ function game(player, cpu) {
       target.textContent = text + ' ' + score;
       // checks the target.id value and uses that to display a 'You Win or You Lose' msg based off value
       if (target.id === 'playerScore') {
-        gameOverDisplay('You Win!', happyface);
+        gameOverDisplay('You Win!!!', happyface);
       } else {
-        gameOverDisplay('You Suck!', sadface);
+        gameOverDisplay('Sorry you lose', sadface);
       }
     }
   }
@@ -116,10 +116,10 @@ function gameOverDisplay(msg,icon) {
   }
   // Game Over Display
   const generatedDiv = document.createElement('div');
-  generatedDiv.className = 'reset';
-  generatedDiv.innerHTML = `<h3> ${msg} </h3>
-                            <img src="${icon}">
-                            <button>Play Again?</button>`;
+  generatedDiv.className = 'endgame-msg';
+  generatedDiv.innerHTML = `<h3 class="endgame-msg__title"> ${msg} </h3>
+                            <img src="${icon}" class="endgame-msg__icon">
+                            <button class="endgame-msg__reset">Play Again?</button>`;
   container.append(generatedDiv);
   // Use 'Event Delegation' to place an event listener on button element
   container.addEventListener('click', getEventTarget);
@@ -129,16 +129,15 @@ function gameOverDisplay(msg,icon) {
 function reset() {
   const gameOutput = document.querySelector('.gameOutput');
   const selection = gameOutput.nextElementSibling;
-  const generatedDiv = document.querySelector('.reset');
+  const generatedDiv = document.querySelector('.endgame-msg');
   const imgs = document.querySelectorAll('img');
   const paras = document.querySelectorAll('p');
-// New Game
+  // New Game
   playerScore = 0;
   cpuScore = 0;
   generatedDiv.parentNode.removeChild(generatedDiv); // remove gameOver UI
   selection.style.display = 'block'; // return player options
-  // empties output results
-  for (let i = 0; i < imgs.length; i++) {
+  for (let i = 0; i < imgs.length; i++) { // empties output results
     imgs[i].src = '';
     paras[i].textContent = '';
   }
