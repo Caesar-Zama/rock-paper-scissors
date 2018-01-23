@@ -42,22 +42,7 @@ function displayChoice() {
 function game(player, cpu) {
   const playerScoreBox = document.getElementById('playerScore');
   const cpuScoreBox = document.getElementById('cpuScore');
-  const happyface = 'icons/happyface.svg';
-  const sadface = 'icons/sadface.svg';
-  // Stops game when winning score is reached
-  function gameOver(score,target,text) {
-    if (score !== 2) {
-      target.textContent = text + ' ' + score;
-    } else {
-      target.textContent = text + ' ' + score;
-      // checks the target.id value and uses that to display a 'You Win or You Lose' msg based off value
-      if (target.id === 'playerScore') {
-        gameOverDisplay('You Win!!!', happyface);
-      } else {
-        gameOverDisplay('Sorry you lose', sadface);
-      }
-    }
-  }
+  
   // Evaluate who won match
   if (player === cpu) {
     gameOver(playerScore, playerScoreBox, 'You:');
@@ -91,6 +76,23 @@ function game(player, cpu) {
     cpuScore++;
     gameOver(cpuScore, cpuScoreBox, 'Cpu:');
     gameOver(playerScore, playerScoreBox, 'You:');
+    }
+  }
+}
+
+// Ends Game
+function gameOver(score,target,text) {
+  const happyface = 'icons/happyface.svg';
+  const sadface = 'icons/sadface.svg';
+// Keep playing until a score of 2 is reached
+  if (score !== 2) {
+    target.textContent = text + ' ' + score;
+  } else {
+    // checks the target.id value and uses that to display a 'You Win or You Lose' msg based off value
+    if (target.id === 'playerScore') {
+      gameOverDisplay('You Win!!!', happyface);
+    } else {
+      gameOverDisplay('Sorry you lose', sadface);
     }
   }
 }

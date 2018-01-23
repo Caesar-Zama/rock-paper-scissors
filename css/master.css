@@ -424,7 +424,7 @@ li {
 
 img {
   margin-top: 25px;
-  max-width: 100%; }
+  max-width: 80%; }
 
 .container {
   display: -webkit-box;
@@ -528,8 +528,7 @@ img {
 
 .score {
   position: relative;
-  bottom: 40px;
-  margin: 0;
+  margin-top: 10px;
   font-size: 1.1em;
   font-weight: 600;
   color: #fff; }
