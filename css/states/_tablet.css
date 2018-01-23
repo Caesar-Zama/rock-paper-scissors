@@ -1,0 +1,6 @@
+@media screen and (min-width: 800px) {
+  .container {
+    background: red; }
+  img {
+    border: 2px solid blue;
+    max-width: 60%; } }

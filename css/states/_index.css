@@ -1,0 +1,6 @@
+@media (min-width: 800px) {
+  body {
+    border: 5px solid green; } }
+
+h1 {
+  color: purple; }
